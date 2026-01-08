@@ -1,0 +1,85 @@
+/* Basic global styles for the web game.  Mobile friendliness is achieved by
+   removing default margins and ensuring the canvas fills the viewport. */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+  background: #111;
+  color: #fff;
+  height: 100%;
+}
+
+/* A semi‑transparent overlay used for the start screen and HUD.  It uses
+   flexbox to centre its content both horizontally and vertically. */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  z-index: 10;
+}
+
+.character-options button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #444;
+  transition: background-color 0.2s;
+}
+
+.character-options button:hover {
+  background-color: #666;
+}
+
+/* Position the HUD text in the top‑left corner when visible. */
+#hud {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Controls container, positioned in the bottom left on mobile.  Hidden by default
+   and shown only after the game starts. */
+#controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 20;
+}
+
+#controls .row {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+#controls button {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  opacity: 0.8;
+}
+
+#controls button:active {
+  background: #555;
+}

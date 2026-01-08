@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jail Game</title>
+  <!-- Simple styles for the game and start screen -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load the minified build of three.js from a CDN.  Using the standalone build avoids
+       bundling and allows the game to run directly in a browser on both desktop and
+       mobile devices. -->
+  <script src="https://unpkg.com/three@0.156.0/build/three.min.js"></script>
+</head>
+<body>
+  <!-- Start screen shown before the game begins.  Users select one of three
+       inmates; each choice assigns a different colour to the player mesh. -->
+  <div id="start-screen" class="overlay">
+    <h1>Jail Simulation</h1>
+    <p>Select your inmate to begin:</p>
+    <div class="character-options">
+      <button data-index="0">Inmate 1&nbsp;– Blue</button>
+      <button data-index="1">Inmate 2&nbsp;– Orange</button>
+      <button data-index="2">Inmate 3&nbsp;– Green</button>
+    </div>
+  </div>
+
+  <!-- Heads‑up display appears after the game starts.  It contains a simple timer. -->
+  <div id="hud" class="overlay" style="display:none;">
+    <span>Time:&nbsp;<span id="time-elapsed">0</span> s</span>
+    <!-- On‑screen controls for mobile devices.  Hidden until the game starts. -->
+    <div id="controls" class="controls" style="display:none;">
+      <div class="row">
+        <button id="btn-up">▲</button>
+      </div>
+      <div class="row">
+        <button id="btn-left">◀</button>
+        <button id="btn-down">▼</button>
+        <button id="btn-right">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for the Three.js renderer.  The renderer attaches its canvas
+       element here during initialisation. Hiding it behind the start screen
+       prevents the user from interacting with the game before selecting a
+       character. -->
+  <div id="game-container" style="width:100vw;height:100vh;display:none;"></div>
+
+  <!-- Main game script.  It initialises the scene once a character is
+       selected, constructs a simple prison cell‑block using BoxGeometry,
+       spawns the player at a random cell and updates a third‑person
+       follow‑camera as the player moves. -->
+  <script src="main.js"></script>
+</body>
+</html>
